@@ -1,0 +1,10 @@
+services: 
+  app: 
+    build: 
+      context: .
+    cap_add:
+      - NET_RAW
+      - NET_ADMIN
+    container_name: seeker-app
+    ports: 
+      - '5000:5000'
