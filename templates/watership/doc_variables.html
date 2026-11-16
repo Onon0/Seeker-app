@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watership</title>
+    
+
+<link rel ="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+
+<div class="container">
+<h1>Watership</h1>
+
+<h2>Variable Types</h2>
+        
+<h3>Syntax</h3>        
+<p>Variable type is simply referred as "type" and instance created from type is referred as "object"</p>
+<pre><code>&&lt;type&gt;:&lt;object_name&gt; = &lt;value&gt;</code></pre>
+
+<hr style="border: 0; border-top: 1px solid #ccc; margin: 20px 0;">
+<section>
+<pre><code>&int:a = 13 <comment>#declare integer</comment>
+&float:f = 3.14 <comment>#declare float</comment>
+&bool:b = T <comment>#T is True | F is false</comment>
+&string:s = "Hello world" <comment>#declare string</comment>
+<comment>#variable printing example</comment>
+&print:integer :{a}:\n
+&print:float :{f}:\n
+&print:bool :{b}:\n
+&print:string :{s}:\n
+</code></pre>
+<p>Expected output</p>
+<pre><code>integer 13
+float 3.14
+bool True
+string Hello world
+</code></pre>
+</section>
+<p>Like in C/C++ Watership has pointer type variable</p>
+<p>pointers example</p>
+<pre><code>&int:a = 0 <comment>#declare integer</comment>
+&pointer:addr = a <comment>#assign address of an a</comment>
+&pointer:value   <comment>#returns a value of object</comment>
+&pointer:value = 12 <comment>#assigns new value to address of an a</comment>
+&print:value of a is :{a}</code></pre>
+Expected value
+<pre><code>value of a is 12</code></pre>
+
+<a href="/watership">back to home</a>
+<footer>
+    
+<p>&copy; 2025 Watership Team. All rights reserved.</p>
+</footer>
+</div>
+
+</body>
+</html>

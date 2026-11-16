@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watership</title>
+
+
+<link rel ="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+
+<div class="container">
+<h1>Watership</h1>
+
+<h2>Pipeline calling</h2>
+
+<h3>Syntax</h3>
+<pre><code>&lt;object&gt;:&lt;function1&gt;:&lt;function2&gt;</code></pre>
+<p>With Watership language you can create pipeline of functions as shown above. 
+Pipe function is special function that takes return value of previous as input</p>
+<hr style="border: 0; border-top: 1px solid #ccc; margin: 20px 0;">
+<p>Basic example</p>
+<pre><code>$Person
+&+string:name
+&-int:age
+@constructer() 
+&name = "John Doe"
+&age = 10
+@constructer(string:_name, int:_age) 
+    &name = _name
+    &age = _age
+
+@+get_age()
+    &return:age
+@+increment_age(pipe:_age) <comment>pipe is a special keyword that allows pipeline input</comment>
+    &age = _age + 1
+$Person
+
+&Person("Mary Sue", 20):person
+person:get_age():increment_age <comment> if all member is pipe type "()" is not need after function </comment>
+&print:{person:name}: is :{person:get_age}: years old \n
+</code></pre>
+<p>Expected output</p>
+<pre><code>Mary Sue is 21 years old</code></pre>
+<a href="/watership">back to home</a>
+<footer>
+    
+<p>&copy; 2025 Watership Team. All rights reserved.</p>
+</footer>
+</div>
+
+</body>
+</html>

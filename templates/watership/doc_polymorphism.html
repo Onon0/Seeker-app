@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watership</title>
+
+
+<link rel ="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+
+<div class="container">
+<h1>Watership</h1>
+
+<h2>Polymorphism</h2>
+
+
+<hr style="border: 0; border-top: 1px solid #ccc; margin: 20px 0;">
+<p>Basic example</p>
+<pre><code>$Person
+&+string:name
+&-int:age
+@constructer() <comment>#constructer is special function name for initializes object</comment>
+&name = "John Doe"
+&age = 10
+@constructer(string:_name, int:_age) <comment>#multiple constructers with different definitions are allowed</comment>
+    &name = _name
+    &age = _age
+
+@+set_age(int:_age)
+    &age = _age 
+@set_age
+
+@+get_age()
+    &return:age
+@get_age
+$Person
+
+$Student:Person <comment>Student extends Person</comment>
+&+int:grade
+@constructor()
+&parent:constructor() <comment>calls parent constructer</comment>
+&grade = 90
+$Student
+
+Student:student
+&print:{student:name}:'s grade is :{student:grade}
+</code></pre>
+<p>Expected output</p>
+<pre><code>John Doe's grade is 90</code></pre>
+<a href="/watership">back to home</a>
+<footer>
+    
+<p>&copy; 2025 Watership Team. All rights reserved.</p>
+</footer>
+</div>
+
+</body>
+</html>

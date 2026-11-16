@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watership</title>
+
+
+<link rel ="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+
+<div class="container">
+<h1>Loops</h1>
+
+
+<p>All loops are denoted with % in front of key word. % at the end denotes end of nearest loop</p>
+
+<pre><code> 
+ %while(&lt;condition&gt;)
+    #do something
+ %
+</code></pre>
+
+<hr style="border: 0; border-top: 1px solid #ccc; margin: 20px 0;">
+<pre><code> 
+ &int:a = 0
+ &array&lt;string&gt;[3]:arr = ["apple","banana","kiwi"]
+ %while(a &lt; 3)
+ &print:{arr[a]}: :
+ %
+</code></pre>
+
+<p>Expected output</p>
+<pre><code> apple banana kiwi </code></pre>
+<a href="/watership">back to home</a>
+<footer>
+    
+<p>&copy; 2025 Watership Team. All rights reserved.</p>
+</footer>
+</div>
+
+</body>
+</html>

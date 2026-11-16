@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watership</title>
+
+
+<link rel ="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+
+<div class="container">
+<h1>Watership</h1>
+
+<h2>Classes and Objects</h2>
+<h3>Syntax</h3>
+<p>$class_name denotes start and end of class definition. "+" sign before declaration marks it's public member and "-" sign marks private member.</p>
+<pre><code>$&lt;class_name&gt;
+&+&lt;public variable declaration&gt;
+&-&lt;private variable declaration&gt;
+@constructer...
+@+&lt;function1... &gt;<comment>#public function</comment>
+@-&lt;function2... &gt;<comment>#private function</comment>
+
+$&lt;class_name&gt;</code></pre>
+
+<hr style="border: 0; border-top: 1px solid #ccc; margin: 20px 0;">
+<p>Basic example</p>
+<pre><code>$Person
+&+string:name
+&-int:age
+<comment>#constructer is special function name for initializes object</comment>
+<comment>#constructer() is considered default</comment>
+@constructer() 
+&name = "John Doe"
+&age = 10
+@constructer(string:_name, int:_age) <comment>#multiple constructers with different definitions are allowed</comment>
+    &name = _name
+    &age = _age
+
+@+set_age(int:_age)
+    &age = _age 
+@set_age
+
+@+get_age()
+    &return:age
+@get_age
+$Person
+
+&Person:person1 <comment>default constructor will be called</comment>
+&Person("Mary Sue", 20):person2
+
+&print:{person1:name}: is :{person1:get_age()}: years old \n
+&print:{person2:name}: is :{person2:get_age()}: years old
+</code></pre>
+<p>Expected output</p>
+<pre><code>John Doe is 10 years old
+Mary Sue is 20 years old</code></pre>
+<a href="/watership">back to home</a>
+<footer>
+    
+<p>&copy; 2025 Watership Team. All rights reserved.</p>
+</footer>
+</div>
+
+</body>
+</html>

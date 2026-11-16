@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watership</title>
+    
+
+<link rel ="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+
+<div class="container">
+<h1>Watership</h1>
+
+<h2>Functions</h2>
+    
+<h3>Basic template</h3>        
+<p>@ denotes start of function. function @&lt;function_name&gt; denotes end of function. </p>
+<pre><code>@&lt;function_name&gt;(&lt;type&gt;:&lt;object&gt;, &lt;type&gt;:&lt;object&gt;, ... , &lt;type&gt;:&lt;object&gt;):&lt;return_type optional&gt;
+&instruction1
+&instruction2
+...
+&instruction3
+@&lt;function_name&gt;</code></pre>
+<hr style="border: 0; border-top: 1px solid #ccc; margin: 20px 0;">
+<p>Example code</p>
+<section>
+<pre><code>@add(int:a, int:b):int
+&int:c=a+b
+&return:c
+@add
+
+&print:2 + 3 is :{add(2,3)}</code></pre>
+expected out:
+<pre><code>2 + 3 is 5</code></pre>
+</section>
+
+
+<p>You can also modify variables by passing the pointer type variable</p>
+<p>Pass by pointer example</p>
+<pre><code>@change_value(int:a, pointer:b)
+&a = 100
+&b:value = 100
+
+&int:a
+&int:b
+&change_value(a,b)
+&print:a is :{a}:endl
+&print:b is :{b}:endl</code></pre>
+<p>Expected output</p>
+<pre><code>a is NULL
+b is 100</code></pre>
+<a href="/watership">back to home</a>
+<footer>
+    
+<p>&copy; 2025 Watership Team. All rights reserved.</p>
+</footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watership</title>
+
+
+<link rel ="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+
+<div class="container">
+<h1>Watership</h1>
+
+<h2>Arrays and Collections</h2>
+<h3>Syntax</h3>
+<pre><code>&array&lt;type&gt;[size][size] ... [size]</code></pre>
+<h3>Arrays</h3>
+<p>Arrays are static multidimensional collection</p>
+<hr style="border: 0; border-top: 1px solid #ccc; margin: 20px 0;">
+<p>Basic Array example</p>
+<pre><code>&array&lt;string&gt;[3]:arr = ["apple","banana","kiwi"]</code></pre>
+<p>2d array example</p>
+<pre><code>&Array&lt;int&gt;[3][2]:arr = [[1,2],[3,4],[5,6]]</code></pre>
+<h3>List</h3>
+<p>List is dynamic one dimensional collection that follows FILO principles</p>
+<p>List syntax</p>
+<pre><code>&List&lt;type&gt;:lst
+&lst:append(&lt;object&gt;)
+&lst:+&lt;object&gt;<comment>#alternative syntax for append</comment>
+&lst:pop <comment>#returns first object (removes object from list)</comment></code></pre>
+<h3>Stack</h3>
+<p>Stacks are dynamic one dimensional collection that follows FIFO principles </p>
+<p>Stack syntax</p>
+<pre><code>&Stack&lt;type&gt;:stk;
+&stk:append(&lt;object&gt;) <comment>#add new variable</comment> 
+&stk:+&lt;object&gt; <comment>#alternative syntax for append</comment>
+&stk:pop <comment>#returns last object (removes object from list)</comment></code></pre>
+
+<a href="/watership">back to home</a>
+<footer>
+    
+<p>&copy; 2025 Watership Team. All rights reserved.</p>
+</footer>
+</div>
+
+</body>
+</html>
