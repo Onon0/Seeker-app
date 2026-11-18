@@ -21,12 +21,14 @@
 <pre><code>$Person
 &+string:name
 &-int:age
-@constructer() <comment>#constructer is special function name for initializes object</comment>
-&name = "John Doe"
-&age = 10
-@constructer(string:_name, int:_age) <comment>#multiple constructers with different definitions are allowed</comment>
+@constructer()     
+    &name = "John Doe"
+    &age = 10
+@constructer() 
+@constructer(string:_name, int:_age) 
     &name = _name
     &age = _age
+@constructer() 
 
 @+set_age(int:_age)
     &age = _age 

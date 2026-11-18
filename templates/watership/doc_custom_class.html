@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watership</title>
+
+
+<link rel ="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+
+<div class="container">
+<h1>Watership</h1>
+
+<h2>Classes and Objects</h2>
+<hr style="border: 0; border-top: 1px solid #ccc; margin: 20px 0;">
+<h3>Compare</h3>
+<p>with compare you can define comparison method. By defining compare function you can compare objects like numbers and sort them</p>
+<pre><code>$Person
+&+string:name
+&+int:age
+<comment>#type is this class's type. in this case "Person"</comment>
+<comment>#other object must be same or inheritance of current class</comment>
+@compare(type:other):int
+    &if (age &gt; other:age)
+    &return:1
+    &elif (age &lt; other:age)
+    &return:-1
+    &elif (age == other.age)
+    &return:0
+    &endif
+$Person
+
+&Person("Alice", 21):alice
+&Person("Bob", 20):bob
+&if(alice &gt; bob)c<comment>#automatically calls compare function</comment>
+&print:Alice is older than Bob \n
+&elif(alice &lt; bob)
+&print:Bob is older than Alice \n
+&elif(alice == bob)
+&print:Bob and Alice are same age\n
+&endif
+</code></pre>
+<p>Expected output</p>
+<pre><code>Alice is older than Bob </code></pre>
+<pre><code>&Person("A", 1):A
+&Person("B", 2):B
+&Person("C", 3):C
+&Person("D", 4):D
+&Array:people = [B,D,A,C]
+print:{people:sort}</code></pre>
+<p>Expected output</p>
+<pre><code>A B C D</code></pre>
+<h3>Convert</h3>
+<pre><code>$Imperial
+&+float:weight
+&+float:temperature
+@constructer(float:_weight, float:_temperature)
+    &weight = _weight
+    &temperature = _temperature
+@constructer
+@convert():Metric
+    &return:Metric(weight/2.2, (temperature - 32)*5/9)   
+@convert
+@convert():string
+    &return:"":weight\: : {weight} : temp\: : {temperature} 
+@convert
+$Imperial
+
+$Metric
+&+float:weight
+&+float:temperature
+@constructer(float:_weight, float:_temperature)
+    &weight = _weight
+    &temperature = _temperature
+@constructer
+@convert():string
+    &return:"":weight\: : {weight} : temp\: : {temperature} 
+@convert
+$Metric
+
+&Metric:metric_obj
+&Imperial:imperial_obj(45, 70.5)
+&metric_obj = imperial_obj <comment>automatically calls convert function</comment>
+&print:imperial obj is :{imperial_obj}:\n <comment>#automatically calls format convert string function</comment>
+&print:metric obj is :{metric_obj}
+</code></pre>
+<p>Expected output</p>
+<pre><code>imperial obj is  weight: 45 temp: 70.5
+metric obj is weight: 20.4117 temp: 21.388
+</code></pre>
+<p>Note: {&lt;object_name&gt;} or assigning object to string type object will automatically call convert string function. if string conversion is not defined then by default it will convert to string "&lt;object_name&gt;"</p>
+<a href="/watership">back to home</a>
+<footer>
+    
+<p>&copy; 2025 Watership Team. All rights reserved.</p>
+</footer>
+</div>
+
+</body>
+</html>

@@ -25,12 +25,13 @@ Pipe function is special function that takes return value of previous as input</
 &+string:name
 &-int:age
 @constructer() 
-&name = "John Doe"
-&age = 10
+    &name = "John Doe"
+    &age = 10
+@constructer() 
 @constructer(string:_name, int:_age) 
     &name = _name
     &age = _age
-
+@constructer() 
 @+get_age()
     &return:age
 @+increment_age(pipe:_age) <comment>pipe is a special keyword that allows pipeline input</comment>

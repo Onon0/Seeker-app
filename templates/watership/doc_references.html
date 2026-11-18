@@ -14,8 +14,8 @@
 <h1>Watership</h1>
 
 <h2>Built-in functions</h2>
-
-
+<p>Watership standard library has built-in functions make development process smoother</p>
+<h3>Class</h3>
 <hr style="border: 0; border-top: 1px solid #ccc; margin: 20px 0;">
 
 <pre><code>$Person
@@ -37,12 +37,45 @@
 @get_age
 $Person
 
-&print:The class type is :{Person:type}
 </code></pre>
 
 <p>:type - static function returns class name</p>
+<p>Usage:</p>
+<pre><code>&print:The class type is :{Person:type}</code></pre>
+
 <p>Expected output</p>
 <pre><code>The class type is Person</code></pre>
+
+<h3>Array</h3>
+<p>:sort - sort array members</p>
+<p></p>
+<pre><code>&array<int>:a = [5,10,3,7,45,12]
+&a = a:sort(asc = T) <comment>#orders ascending order</comment>
+&print:{a}
+</code></pre>
+<p>Expected output</p>
+<pre><code>3 5 7 10 12 45</code></pre>
+<p>:index - array object automatically enumerates it's members. It's useful for iterating through array such as foreach loop</p>
+<p>Usage:</p>
+<pre><code> &print:{&a[10]:index} <comment>#output: 10</comment></code></pre>
+<h3>Primitives</h3>
+<p>:format - returns formatted string value</p>
+<pre><code>&int:a = 4
+&float:f = 3.1458789
+&print:{a:format(5d)}:\n <comment>#fixed length 5</comment>
+&print:{f:format(.2f)}:\n <comment>#print 2 digits after floating point</comment>
+</code></pre>
+<p>Expected output</p>
+<pre><code>00005
+3.14
+</code></pre>
+<p>:convert</p>
+<pre><code>&int:a = 10
+&float:f = 2.156651
+&string:s = a <comment>converts to 10 as a string</comment>
+&int:b = f <comment>floors the number (2.14 -> 2)</comment>
+&float:k = a <comment>10 -> 10.0</comment>
+</code></pre>
 <a href="/watership">back to home</a>
 <footer>
     

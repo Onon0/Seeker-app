@@ -1,15 +1,17 @@
 from flask import Flask, render_template
 app = Flask(__name__)
 
-@app.route('/watership/introduction')
+@app.route('/')
+def home():
+    return render_template("watership/introduction.html", title="Watership python web development framework")
+
+@app.route('/watership')
 def introduction():
     return render_template("watership/introduction.html", title="Watership python web development framework")
 
-
-
-@app.route('/watership')
+@app.route('/references')
 def getting_started():
-    return render_template("watership/introduction.html", title="Watership documentation")
+    return render_template("watership/doc_references.html", title="Watership documentation")
 
 @app.route('/watership/tutorial/<int:chapter>')       
 def tutorial_1(chapter):
@@ -20,20 +22,23 @@ def tutorial_1(chapter):
     elif chapter == 3: 
         return render_template("watership/doc_loops.html", title="Watership documentation")
     elif chapter == 4: 
-        return render_template("watership/doc_functions.html", title="Watership documentation")
+        return render_template("watership/doc_if.html", title="Watership documentation")
     elif chapter == 5: 
+        return render_template("watership/doc_functions.html", title="Watership documentation")
+    elif chapter == 6: 
         return render_template("watership/doc_collections.html", title="Watership documentation")
-    elif chapter == 6:
+    elif chapter == 7:
         return render_template("watership/doc_enum.html", title="Watership documentation")
-    elif chapter == 7: 
-        return render_template("watership/doc_oop.html", title="Watership documentation")
     elif chapter == 8: 
-        return render_template("watership/pipelines.html", title="Watership documentation")
+        return render_template("watership/doc_oop.html", title="Watership documentation")
     elif chapter == 9: 
-        return render_template("watership/doc_polymorphism.html", title="Watership documentation")
+        return render_template("watership/pipelines.html", title="Watership documentation")
     elif chapter == 10: 
-        return render_template("watership/doc_references.html", title="Watership documentation")
-
+        return render_template("watership/doc_polymorphism.html", title="Watership documentation")
+    elif chapter == 11: 
+        return render_template("watership/doc_templates.html", title="Watership documentation")
+    elif chapter == 12: 
+        return render_template("watership/doc_custom_class.html", title="Watership documentation")
     else:
         return "invalid path"
 
